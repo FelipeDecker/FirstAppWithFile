@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,28 +11,63 @@ namespace Treinamento
     {
         static void Main(string[] args)
         {
-            #region Exemplo06
+            #region Exemplo07
 
-            string source = @"C:\Users\felipe.decker\temp\texto.txt";
-            string destiny = @"C:\Users\felipe.decker\temp\texto2.txt";
+            string path = @"C:\Users\felipe.decker\temp";
 
             try
             {
-                string[] lines = File.ReadAllLines(source);
+                IEnumerable<string> folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
+                //var folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
 
-                using (StreamWriter sw = File.AppendText(destiny))
+                Console.WriteLine("Pastas");
+                foreach (var s in folders)
                 {
-                    foreach (var line in  lines)
-                    {
-                        sw.WriteLine(line.ToUpper());
-                    }
+                    Console.WriteLine(s);
                 }
+
+                var files = Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories);
+
+                Console.WriteLine("Filés");
+
+                foreach (var file in files)
+                {
+                    Console.WriteLine(file);
+                }
+
+                Directory.CreateDirectory(path + @"\NewPasta");
+                //Directory.CreateDirectory(path + "\\NewPasta");
+
             }
             catch (IOException e)
             {
-                Console.WriteLine(e);
-                throw;
+                Console.WriteLine(e.Message);
             }
+
+            #endregion
+
+            #region Exemplo06
+
+            //string source = @"C:\Users\felipe.decker\temp\texto.txt";
+            //string destiny = @"C:\Users\felipe.decker\temp\texto2.txt";
+
+            //try
+            //{
+            //    string[] lines = File.ReadAllLines(source);
+
+            //    using (StreamWriter sw = File.AppendText(destiny))
+            //    {
+            //        foreach (var line in  lines)
+            //        {
+            //            sw.WriteLine(line.ToUpper());
+            //        }
+            //    }
+            //}
+            //catch (IOException e)
+            //{
+            //    Console.WriteLine(e);
+            //    throw;
+            //}
 
             #endregion
 
