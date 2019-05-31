@@ -11,38 +11,61 @@ namespace Treinamento
     {
         static void Main(string[] args)
         {
+            #region Exemplo08
+
+            //string path = @"C:\Users\felipe.decker\temp\texto.txt";
+
+            //Console.WriteLine("Directory Separator Char: " + Path.DirectorySeparatorChar);
+
+            //Console.WriteLine("Path Separator: " + Path.PathSeparator);
+
+            //Console.WriteLine("Get directory name: " + Path.GetDirectoryName(path));
+
+            //Console.WriteLine("Get File Name: " + Path.GetFileName(path));
+
+            //Console.WriteLine("Get Extension: " + Path.GetExtension(path));
+
+            //Console.WriteLine("Get File Name Without Extension: " + Path.GetFileNameWithoutExtension(path));
+
+            //Console.WriteLine("Get Full Path" + Path.GetFullPath(path));
+
+            //Console.WriteLine("Get Temp Path: " + Path.GetTempPath());
+
+
+            #endregion
+
             #region Exemplo07
 
-            string path = @"C:\Users\felipe.decker\temp";
+            //string path = @"C:\Users\felipe.decker\temp";
 
-            try
-            {
-                IEnumerable<string> folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
-                //var folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
+            //try
+            //{
+            //    IEnumerable<string> folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
+            //    //var folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
 
-                Console.WriteLine("Pastas");
-                foreach (var s in folders)
-                {
-                    Console.WriteLine(s);
-                }
+            //    Console.WriteLine("Pastas");
+            //    foreach (var s in folders)
+            //    {
+            //        Console.WriteLine(s);
+            //    }
 
-                var files = Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories);
+            //    var files = Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories);
 
-                Console.WriteLine("Filés");
+            //    Console.WriteLine("Filés");
 
-                foreach (var file in files)
-                {
-                    Console.WriteLine(file);
-                }
+            //    foreach (var file in files)
+            //    {
+            //        Console.WriteLine(file);
+            //    }
 
-                Directory.CreateDirectory(path + @"\NewPasta");
-                //Directory.CreateDirectory(path + "\\NewPasta");
+            //    Directory.CreateDirectory(path + @"\NewPasta");
+            //    //Directory.CreateDirectory(path + "\\NewPasta");
 
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            //}
+            //catch (IOException e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
 
             #endregion
 
