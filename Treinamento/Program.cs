@@ -10,21 +10,76 @@ namespace Treinamento
     {
         static void Main(string[] args)
         {
-            #region Exemplo04
+            #region Exemplo06
 
-            string path = @"C:\Users\felipe.decker\temp\texto.txt";
+            string source = @"C:\Users\felipe.decker\temp\texto.txt";
+            string destiny = @"C:\Users\felipe.decker\temp\texto2.txt";
 
-            using (FileStream fs = new FileStream(path, FileMode.Open))
+            try
             {
-                using (StreamReader sr = new StreamReader(fs))
+                string[] lines = File.ReadAllLines(source);
+
+                using (StreamWriter sw = File.AppendText(destiny))
                 {
-                    while (!sr.EndOfStream)
+                    foreach (var line in  lines)
                     {
-                        string line = sr.ReadLine();
-                        Console.WriteLine(line);
+                        sw.WriteLine(line.ToUpper());
                     }
                 }
             }
+            catch (IOException e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+            #endregion
+
+            #region Exemplo05
+
+            //string path = @"C:\Users\felipe.decker\temp\texto.txt";
+
+            //try
+            //{
+            //    using (StreamReader sr = File.OpenText(path))
+            //    {
+            //        while (!sr.EndOfStream)
+            //        {
+            //            string line = sr.ReadLine();
+            //            Console.WriteLine(line);
+            //        }
+            //    }
+            //}
+            //catch (IOException e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+
+            #endregion
+
+            #region Exemplo04
+
+            //string path = @"C:\Users\felipe.decker\temp\texto.txt";
+
+            //try
+            //{
+            //    using (FileStream fs = new FileStream(path, FileMode.Open))
+            //    {
+            //        using (StreamReader sr = new StreamReader(fs))
+            //        {
+            //            while (!sr.EndOfStream)
+            //            {
+            //                string line = sr.ReadLine();
+            //                Console.WriteLine(line);
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (IOException e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+
 
             #endregion
 
@@ -94,7 +149,7 @@ namespace Treinamento
             //}
 
             #endregion
-        
+
             #region Exemplo01
 
             //string source = @"C:\Users\felipe.decker\temp\texto.txt";
@@ -119,6 +174,15 @@ namespace Treinamento
             //}
 
             //Console.ReadLine();
+
+            #endregion
+
+            #region Breve Explicação
+
+            // O caminho contido na string path é referente ao caminho que esta meu arquivo texto
+            // esse arquivo texto é um arquivo txt (sério?)
+            // dentro dele eu escrevi 3 coisas em 3 linhas
+            // isso pq o programa vai ler linha por linha
 
             #endregion
 
