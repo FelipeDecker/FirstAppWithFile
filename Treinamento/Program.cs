@@ -11,6 +11,10 @@ namespace Treinamento
     {
         static void Main(string[] args)
         {
+            #region
+
+            #endregion
+
             #region Exemplo08
 
             //string path = @"C:\Users\felipe.decker\temp\texto.txt";
